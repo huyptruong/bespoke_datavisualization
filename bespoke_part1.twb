@@ -505,8 +505,194 @@
         </objects>
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
+    <datasource inline='true' name='Clipboard_20250117T062849' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Clipboard_20250117T062849' name='Clipboard_20250117T062849leaf'>
+            <connection class='textscan' directory='C:/Users/kenny/Documents/My Tableau Repository/Datasources' filename='Clipboard_20250117T062849.txt' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='Clipboard_20250117T062849leaf' name='Clipboard_20250117T062849#txt' table='[Clipboard_20250117T062849#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US'>
+            <column datatype='integer' name='Path' ordinal='0' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='Clipboard_20250117T062849leaf' name='Clipboard_20250117T062849#txt' table='[Clipboard_20250117T062849#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US'>
+            <column datatype='integer' name='Path' ordinal='0' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Clipboard_20250117T062849#txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Path</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Path]</local-name>
+            <parent-name>[Clipboard_20250117T062849#txt]</parent-name>
+            <remote-alias>Path</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20250117T062849]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Index' datatype='integer' name='[Calculation_1284651830862221312]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='INDEX()'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column aggregation='None' caption='Path (bin)' datatype='integer' name='[Path (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='1' formula='[Path]' peg='0' size='20' />
+      </column>
+      <column datatype='integer' name='[Path]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Clipboard_20250117T062849' datatype='table' name='[__tableau_internal_object_id__].[Clipboard_20250117T062849]' role='measure' type='quantitative' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Clipboard_20250117T062849' id='Clipboard_20250117T062849'>
+            <properties context=''>
+              <relation connection='Clipboard_20250117T062849leaf' name='Clipboard_20250117T062849#txt' table='[Clipboard_20250117T062849#txt]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US'>
+                  <column datatype='integer' name='Path' ordinal='0' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
   </datasources>
   <worksheets>
+    <worksheet name='data densification - charts'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20250117T062849' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20250117T062849'>
+            <column caption='Index' datatype='integer' name='[Calculation_1284651830862221312]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='INDEX()'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column aggregation='None' caption='Path (bin)' datatype='integer' name='[Path (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='1' formula='[Path]' peg='0' size='20' />
+            </column>
+            <column datatype='integer' name='[Path]' role='measure' type='quantitative' />
+            <column-instance column='[Path (bin)]' derivation='None' name='[none:Path (bin):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Path]' derivation='None' name='[none:Path:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1284651830862221312]' derivation='User' name='[usr:Calculation_1284651830862221312:qk:4]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[Clipboard_20250117T062849].[Path (bin)]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[Clipboard_20250117T062849].[none:Path:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[Clipboard_20250117T062849].[usr:Calculation_1284651830862221312:qk:4]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <lod column='[Clipboard_20250117T062849].[none:Path (bin):ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-markers-mode' value='all' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>([Clipboard_20250117T062849].[none:Path:qk] + [Clipboard_20250117T062849].[usr:Calculation_1284651830862221312:qk:4])</cols>
+        <show-full-range>
+          <column>[Clipboard_20250117T062849].[Path (bin)]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{7D7B0409-ED92-4036-8CD9-7C8A0D76A095}' />
+    </worksheet>
+    <worksheet name='data densification - explore'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20250117T062849' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20250117T062849'>
+            <column caption='Index' datatype='integer' name='[Calculation_1284651830862221312]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='INDEX()'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column aggregation='None' caption='Path (bin)' datatype='integer' name='[Path (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='1' formula='[Path]' peg='0' size='20' />
+            </column>
+            <column datatype='integer' name='[Path]' role='measure' type='quantitative' />
+            <column-instance column='[Path (bin)]' derivation='None' name='[none:Path (bin):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_1284651830862221312]' derivation='User' name='[usr:Calculation_1284651830862221312:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[Clipboard_20250117T062849].[usr:Calculation_1284651830862221312:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[Clipboard_20250117T062849].[none:Path (bin):ok]</rows>
+        <cols />
+        <show-full-range>
+          <column>[Clipboard_20250117T062849].[Path (bin)]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{D56034ED-692D-4DE8-9BC4-19F79FF60B7F}' />
+    </worksheet>
     <worksheet name='index - in table'>
       <table>
         <view>
@@ -738,7 +924,7 @@
       <simple-id uuid='{802E6E74-2F01-4C09-840A-F2DCC97FC74F}' />
     </worksheet>
   </worksheets>
-  <windows source-height='30'>
+  <windows source-height='51'>
     <window class='worksheet' name='index - top 5'>
       <cards>
         <edge name='left'>
@@ -803,7 +989,7 @@
       </viewpoint>
       <simple-id uuid='{4A65324B-BD2E-4995-9B96-13983633DBF8}' />
     </window>
-    <window class='worksheet' maximized='true' name='window sum / min / max'>
+    <window class='worksheet' name='window sum / min / max'>
       <cards>
         <edge name='left'>
           <strip size='219'>
@@ -835,8 +1021,189 @@
       </viewpoint>
       <simple-id uuid='{41E9FD80-CA42-45CC-B495-61004F9DC6ED}' />
     </window>
+    <window class='worksheet' name='data densification - explore'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[Clipboard_20250117T062849].[none:Path (bin):ok]</field>
+            <field>[Clipboard_20250117T062849].[none:Path:ok]</field>
+            <field>[Clipboard_20250117T062849].[none:Path:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{5B807323-6140-46F5-B750-42E8CB447D88}' />
+    </window>
+    <window class='worksheet' maximized='true' name='data densification - charts'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[Clipboard_20250117T062849].[none:Path (bin):ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{6F541D3B-C4CE-4226-880E-DC24F3757F4A}' />
+    </window>
   </windows>
   <thumbnails>
+    <thumbnail height='79' name='data densification - charts' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='data densification - explore' width='144'>
+      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
+    </thumbnail>
     <thumbnail height='192' name='index - in table' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
       AAAgAElEQVR4nO292Xdc6Xmv9+yaC1VAFYDCPM8DAU4gAQ7N7pbU3ZKstuXxnMT2cuxlZ+Ui
