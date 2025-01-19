@@ -24,82 +24,6 @@
     </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
   </_.fcp.AnimationOnByDefault.false...style>
   <datasources>
-    <datasource caption='Data Densification Example' inline='true' name='Clipboard_20250117T062849' version='18.1'>
-      <connection class='federated'>
-        <named-connections>
-          <named-connection caption='data_densification' name='Clipboard_20250117T062849leaf'>
-            <connection class='textscan' directory='C:/git_repos/bespoke_visualization/customized_data' filename='data_densification.txt' password='' server='' />
-          </named-connection>
-        </named-connections>
-        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='Clipboard_20250117T062849leaf' name='data_densification.txt' table='[data_densification#txt]' type='table'>
-          <columns character-set='UTF-8' header='yes' locale='en_US'>
-            <column datatype='integer' name='Path' ordinal='0' />
-          </columns>
-        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
-        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='Clipboard_20250117T062849leaf' name='data_densification.txt' table='[data_densification#txt]' type='table'>
-          <columns character-set='UTF-8' header='yes' locale='en_US'>
-            <column datatype='integer' name='Path' ordinal='0' />
-          </columns>
-        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
-        <metadata-records>
-          <metadata-record class='capability'>
-            <remote-name />
-            <remote-type>0</remote-type>
-            <parent-name>[data_densification.txt]</parent-name>
-            <remote-alias />
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
-              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
-              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
-              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
-              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>Path</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[Path]</local-name>
-            <parent-name>[data_densification.txt]</parent-name>
-            <remote-alias>Path</remote-alias>
-            <ordinal>0</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[data_densification.txt_687DAA3CB897452BABDD8DC5C081C994]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-        </metadata-records>
-      </connection>
-      <aliases enabled='yes' />
-      <column caption='Index' datatype='integer' name='[Calculation_1284651830862221312]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='INDEX()'>
-          <table-calc ordering-type='Rows' />
-        </calculation>
-      </column>
-      <column aggregation='None' caption='Path (bin)' datatype='integer' name='[Path (bin)]' role='dimension' type='ordinal'>
-        <calculation class='bin' decimals='1' formula='[Path]' peg='0' size='20' />
-      </column>
-      <column datatype='integer' name='[Path]' role='measure' type='quantitative' />
-      <_.fcp.ObjectModelTableType.true...column caption='data_densification.txt' datatype='table' name='[__tableau_internal_object_id__].[data_densification.txt_687DAA3CB897452BABDD8DC5C081C994]' role='measure' type='quantitative' />
-      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
-      <semantic-values>
-        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
-      </semantic-values>
-      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
-        <objects>
-          <object caption='data_densification.txt' id='data_densification.txt_687DAA3CB897452BABDD8DC5C081C994'>
-            <properties context=''>
-              <relation connection='Clipboard_20250117T062849leaf' name='data_densification.txt' table='[data_densification#txt]' type='table'>
-                <columns character-set='UTF-8' header='yes' locale='en_US'>
-                  <column datatype='integer' name='Path' ordinal='0' />
-                </columns>
-              </relation>
-            </properties>
-          </object>
-        </objects>
-      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
-    </datasource>
     <datasource caption='Shaped Bar Chart Example' inline='true' name='Clipboard_20250118T044624' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -744,6 +668,95 @@
         </objects>
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
+    <datasource caption='Data Densification Example' inline='true' name='Clipboard_20250117T062849' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='data_densification' name='Clipboard_20250117T062849leaf'>
+            <connection class='textscan' directory='C:/git_repos/bespoke_visualization/customized_data' filename='data_densification.txt' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='Clipboard_20250117T062849leaf' name='data_densification.txt' table='[data_densification#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US'>
+            <column datatype='integer' name='Path' ordinal='0' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='Clipboard_20250117T062849leaf' name='data_densification.txt' table='[data_densification#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US'>
+            <column datatype='integer' name='Path' ordinal='0' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[data_densification.txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Path</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Path]</local-name>
+            <parent-name>[data_densification.txt]</parent-name>
+            <remote-alias>Path</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[data_densification.txt_687DAA3CB897452BABDD8DC5C081C994]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Index' datatype='integer' name='[Calculation_1284651830862221312]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='INDEX()'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Y' datatype='real' name='[Calculation_3127187029145231364]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SIN(RADIANS([Index (copy)_3127187029144907777]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Index (copy)' datatype='integer' name='[Index (copy)_3127187029144907777]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='INDEX() - 1'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column aggregation='None' caption='Path (bin) (copy)' datatype='integer' name='[Path (bin) (copy)_3127187029144899584]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[Path]' peg='0' size='1' />
+      </column>
+      <column aggregation='None' caption='Path (bin)' datatype='integer' name='[Path (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='1' formula='[Path]' peg='0' size='20' />
+      </column>
+      <column datatype='integer' name='[Path]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='data_densification.txt' datatype='table' name='[__tableau_internal_object_id__].[data_densification.txt_687DAA3CB897452BABDD8DC5C081C994]' role='measure' type='quantitative' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='data_densification.txt' id='data_densification.txt_687DAA3CB897452BABDD8DC5C081C994'>
+            <properties context=''>
+              <relation connection='Clipboard_20250117T062849leaf' name='data_densification.txt' table='[data_densification#txt]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US'>
+                  <column datatype='integer' name='Path' ordinal='0' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
   </datasources>
   <worksheets>
     <worksheet name='data densification - charts'>
@@ -1111,6 +1124,58 @@
       </table>
       <simple-id uuid='{AD48B25E-FFBD-4D37-A2F7-5F13A4497D7B}' />
     </worksheet>
+    <worksheet name='sine chart'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Data Densification Example' name='Clipboard_20250117T062849' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20250117T062849'>
+            <column caption='Y' datatype='real' name='[Calculation_3127187029145231364]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SIN(RADIANS([Index (copy)_3127187029144907777]))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Index (copy)' datatype='integer' name='[Index (copy)_3127187029144907777]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='INDEX() - 1'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column aggregation='None' caption='Path (bin) (copy)' datatype='integer' name='[Path (bin) (copy)_3127187029144899584]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[Path]' peg='0' size='1' />
+            </column>
+            <column datatype='integer' name='[Path]' role='measure' type='quantitative' />
+            <column-instance column='[Path (bin) (copy)_3127187029144899584]' derivation='None' name='[none:Path (bin) (copy)_3127187029144899584:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_3127187029145231364]' derivation='User' name='[usr:Calculation_3127187029145231364:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+              <table-calc field='[Clipboard_20250117T062849].[Index (copy)_3127187029144907777]' ordering-field='[Clipboard_20250117T062849].[Path (bin) (copy)_3127187029144899584]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[Index (copy)_3127187029144907777]' derivation='User' name='[usr:Index (copy)_3127187029144907777:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[Clipboard_20250117T062849].[Path (bin) (copy)_3127187029144899584]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <lod column='[Clipboard_20250117T062849].[none:Path (bin) (copy)_3127187029144899584:ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[Clipboard_20250117T062849].[usr:Calculation_3127187029145231364:qk]</rows>
+        <cols>[Clipboard_20250117T062849].[usr:Index (copy)_3127187029144907777:qk:2]</cols>
+        <show-full-range>
+          <column>[Clipboard_20250117T062849].[Path (bin) (copy)_3127187029144899584]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{E16800A2-C040-4FC7-8675-69D034F5DA22}' />
+    </worksheet>
     <worksheet name='window sum / min / max'>
       <table>
         <view>
@@ -1386,7 +1451,7 @@
       </viewpoint>
       <simple-id uuid='{6F541D3B-C4CE-4226-880E-DC24F3757F4A}' />
     </window>
-    <window class='worksheet' maximized='true' name='shaped bar chart'>
+    <window class='worksheet' name='shaped bar chart'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1413,11 +1478,6 @@
         </edge>
       </cards>
       <viewpoint>
-        <current-page>
-          <multibucket>
-            <bucket>10</bucket>
-          </multibucket>
-        </current-page>
         <highlight>
           <color-one-way>
             <field>[Clipboard_20250118T044624].[none:Country:nk]</field>
@@ -1427,6 +1487,36 @@
         <default-map-tool-selection tool='2' />
       </viewpoint>
       <simple-id uuid='{64B7F825-F3E8-4188-85BB-495DAB8ACEA5}' />
+    </window>
+    <window class='worksheet' maximized='true' name='sine chart'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[Clipboard_20250117T062849].[none:Path (bin) (copy)_3127187029144899584:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{B72B1E2D-CC87-4109-BE16-7B52C945E96A}' />
     </window>
   </windows>
   <thumbnails>
@@ -2013,6 +2103,139 @@
       jXk2n3WrDjIhaQWzuy7s3TXkb9pI7nV4CiQBEFqTf4MKrUkAhNYkAEJrEgChNQmA0JoEQGhN
       AiC0JgEQWpMACK1JAITWJABCaxIAoTUJgNCaBEBoTQIgtCYBEFqTAAitSQCE1iQAQmsSAKE1
       CYDQmgRAaO1/nANJEQr0KlsAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='sine chart' width='192'>
+      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
+      wAAAAABJRU5ErkJggg==
     </thumbnail>
     <thumbnail height='192' name='window sum / min / max' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
