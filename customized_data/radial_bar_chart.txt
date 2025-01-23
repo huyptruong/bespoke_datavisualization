@@ -1,0 +1,9 @@
+Country, Value, Path
+United States, 100, 1
+United States, 100, 271
+United Kingdom, 30, 1
+United Kingdom, 30, 271
+Canada, 80, 1
+Canada, 80, 271
+Hong Kong, 50, 1
+Hong Kong, 50, 271
